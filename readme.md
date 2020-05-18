@@ -28,7 +28,9 @@ Now you can open the tool by typing `python3 main.py`.
 
 ### What next?
 
-I'm not convinced I need a class for this tool. Really it's 4 functions, 2 of which are 'get the data' and 'processs the data'.
+I'm not convinced I need a class for this tool. Really I have a (private) function that scrapes the data,
+a (private) function that parses the scraped data, and a few variables to store stuff.
+I run both functions on instantiation so 'users' of the object are not actually calling these functions themselves.
 Maybe I can just turn it into a module and skip the ceremony of OOP.
 
 

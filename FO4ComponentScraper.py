@@ -16,7 +16,6 @@ class FO4ComponentScraper:
         if self.soup is None:
             page = requests.get(self.SOURCE_URL)
             self.soup = BeautifulSoup(page.content, features="html.parser")
-            self.scraped = True
 
     def __get_all_components(self):
         # Get the first table on the page (which contains the components and their IDs)
