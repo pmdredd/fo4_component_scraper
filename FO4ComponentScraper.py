@@ -22,12 +22,12 @@ class FO4ComponentScraper:
             self.scraped = True
 
     def __get_all_components(self):
-        # Get the first table on the pages (which contains the components and their IDs)
+        # Get the first table on the page (which contains the components and their IDs)
         components_table = self.soup.find('table', class_='va-table')
-        # Get all the rows from the table in a list
+        # Get all the rows from the table, as a list
         components_rows = components_table.find_all('tr')
 
-        # Loop through each table row and extract the component name and base ID,
+        # Loop through each row and extract the component name and base ID,
         # excluding first 2 rows as they are headers
         for component in components_rows[2:]:
             name = component.a.text.lower()
