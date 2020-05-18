@@ -5,7 +5,6 @@ from bs4 import BeautifulSoup
 
 class FO4ComponentScraper:
     SOURCE_URL = "https://fallout.fandom.com/wiki/Fallout_4_junk_items"
-    scraped = False
     soup = None
     components = {}
 
@@ -14,9 +13,7 @@ class FO4ComponentScraper:
         self.__get_all_components()
 
     def __scrape_page(self):
-        if self.scraped:  # Check if we have already scraped this page
-            pass
-        else:
+        if self.soup is None:
             page = requests.get(self.SOURCE_URL)
             self.soup = BeautifulSoup(page.content, features="html.parser")
             self.scraped = True
@@ -33,11 +30,6 @@ class FO4ComponentScraper:
             name = component.a.text.lower()
             item_base_id = component.find('span', class_='va-formid').text.upper()
             self.components[name] = item_base_id
-
-        return self.components
-
-    def all_components(self):
-        return self.components
 
     def get_component(self, name):
         name = name.lower()

@@ -1,9 +1,11 @@
 from FO4ComponentScraper import FO4ComponentScraper
 
+sc = FO4ComponentScraper()
+HEADER_OFFSET = 7 # The vertical offset of the header columns
+BODY_OFFSET = 16  # The vertical offset between the body columns
+
 
 def main():
-    sc = FO4ComponentScraper()
-
     print("Which crafting component(s) do you want to get the IDs for?")
     print("Enter 'all' for all components, or enter a components name for specific components")
     print("Enter 'q' or 'quit' to exit")
@@ -12,17 +14,16 @@ def main():
         if query == 'q' or query == 'quit':
             break
         elif query == 'all':
-            components = sc.all_components()
-            print(f'Component {7 * " "}: ID #')
-            for name, item_id in components.items():
-                print(f'{name} {(16 - len(name)) * " "}: {item_id}')
+            print(f'Component {HEADER_OFFSET * " "}: ID #')
+            for name, item_id in sc.components.items():
+                print(f'{name} {(BODY_OFFSET - len(name)) * " "}: {item_id}')
             print("")
         else:
-            if query not in sc.all_components():
-                print("This is not a valid component")
+            if query not in sc.components:
+                print("This is not a valid component\n")
             else:
                 component = sc.get_component(query)
-                print(f'{query} : {component[query]}')
+                print(f'{query} : {component[query]}\n')
         query = input().lower()
 
 
