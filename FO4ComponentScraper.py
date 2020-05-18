@@ -30,7 +30,3 @@ class FO4ComponentScraper:
             name = component.a.text.lower()
             item_base_id = component.find('span', class_='va-formid').text.upper()
             self.components[name] = item_base_id
-
-    def get_component(self, name):
-        name = name.lower()
-        return {name: self.components[name]}

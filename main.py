@@ -22,8 +22,7 @@ def main():
             if query not in sc.components:
                 print("This is not a valid component\n")
             else:
-                component = sc.get_component(query)
-                print(f'{query} : {component[query]}\n')
+                print(f'{query} : {sc.components[query]}\n')
         query = input().lower()
 
 
