@@ -28,6 +28,14 @@ Now you can open the tool by typing `python3 main.py`.
 
 ### What next?
 
+- ~~Add ability to search a junk item and gets its components in return~~
+- Include DCL items
+- Show quantities of components you get get from a junk item
+- Show sources for components?
+- Nicer UI?
+
+### Musings
+
 ~~I'm not convinced I need a class for this tool. Really I have a (private) function that scrapes the data,
 a (private) function that parses the scraped data, and a few variables to store stuff.
 I run both functions on instantiation so 'users' of the object are not actually calling these functions themselves.
@@ -37,5 +45,7 @@ I have removed the FO4ComponentScraper class and replaced it with a plain impera
 I think defining a class wasn't necessary as the resulting object was not composable or re-usable,
 and I was accessing the attributes directly anyway so encapsulation was pointless. Storing the result of the scrape
 was not necessary either as the script only scrapes once when it starts anyway.
+
+
 
 
