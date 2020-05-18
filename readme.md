@@ -36,6 +36,6 @@ Maybe I can just turn it into a module and skip the ceremony of OOP.~~
 I have removed the FO4ComponentScraper class and replaced it with a plain imperative module with a single function.
 I think defining a class wasn't necessary as the resulting object was not composable or re-usable,
 and I was accessing the attributes directly anyway so encapsulation was pointless. Storing the result of the scrape
-was not necessary either as the script only does it once when it starts anyway.
+was not necessary either as the script only scrapes once when it starts anyway.
 
 
