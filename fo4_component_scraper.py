@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-SOURCE_URL: str = "https://fallout.fandom.com/wiki/Fallout_4_junk_items"
+SOURCE_URL = "https://fallout.fandom.com/wiki/Fallout_4_junk_items"
 page = requests.get(SOURCE_URL)
 soup = BeautifulSoup(page.content, features="html.parser")
 
