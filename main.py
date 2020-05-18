@@ -1,7 +1,7 @@
 from FO4ComponentScraper import FO4ComponentScraper
 
 sc = FO4ComponentScraper()
-HEADER_OFFSET = 7 # The vertical offset of the header columns
+HEADER_OFFSET = 7  # The vertical offset of the header columns
 BODY_OFFSET = 16  # The vertical offset between the body columns
 
 
