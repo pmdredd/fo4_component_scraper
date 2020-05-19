@@ -1,7 +1,7 @@
 # What is this?
 
 This tool is a very simple web scraper that takes data related to Fallout 4 crafting components
-and displays that data within a CLI. The FO4ComponentScraper class handles scraping and parsing the data,
+and displays that data within a CLI. The fo4_component_scraper contains functions that handle scraping and parsing the data,
 and the main.py file contains the 'loop' that allows you to query the data via the command line.
 
 ### Why?
