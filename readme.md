@@ -16,6 +16,8 @@ or write a script that only prints all IDs) but I wanted to try out some web scr
 
 ### How?
 
+This program requires Python 3.6+ as it utilises f-strings. The following steps assume you already have Python 3.6 installed.
+
 Clone the repository to any folder with `git clone https://github.com/pmdredd/fo4_component_scraper.git`.
 
 Create a new virtual env using  `python3 -m venv venv` then activate that env with `venv\Scripts\activate` on Windows,
