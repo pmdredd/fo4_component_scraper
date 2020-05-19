@@ -8,16 +8,16 @@ and return the relevant item/component data as a dictionary.
 def get_components(soup):
     """Get the name and ID of every component"""
 
-    # Get the first table on the page, which contains the components and their IDs
+    # The first table on the page contains the components and their IDs
     components_table = soup.find('table', class_='va-table')
-    # Get all the rows from the table, as a list, excluding first 2 rows as they are headers
+    # Exclude the first 2 rows as they are headers
     component_rows = components_table.find_all('tr')[2:]
 
     components = {}
     for row in component_rows:
         name = row.a.text.lower()
-        item_base_id = row.find('span', class_='va-formid').text.upper()
-        components[name] = item_base_id
+        component_base_id = row.find('span', class_='va-formid').text.upper()
+        components[name] = component_base_id
     return components
 
 
@@ -32,9 +32,9 @@ def get_junk_items(soup):
     junk_items = {}
     for row in junk_rows:
         cols = row.find_all('td')
-        # The first column is holds a link with the name of the junk item
+        # The first column holds a link with the name of the junk item
         name = cols[0].a.text.lower()
-        # The 6th column contains links with the names of the junk item's components, which we want as a list
+        # The sixth column contains links with the names of the junk item's components
         components = [component.text.lower() for component in cols[5].find_all('a')]
 
         junk_items[name] = components

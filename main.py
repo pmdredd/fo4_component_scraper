@@ -5,7 +5,7 @@ and junk items from Fallout 4.
 
 Entering 'all' or 'a' returns all crafting components and their values.
 Entering the name of a component e.g. wood returns that component and its ID.
-Entering the name of a junk item returns that item and the components is produces when scrapped.
+Entering the name of a junk item returns that item and the components it produces when scrapped.
 Entering 'q' or 'quit' exits the program.
 """
 
@@ -34,17 +34,17 @@ def main():
         if query == 'quit' or query == 'q':
             break
         elif query == 'all' or query == 'a':
-            print(f'Component {HEADER_OFFSET * " "}: ID #')
+            print(f'Component {HEADER_OFFSET * " "}  |  ID #')
             for name, item_id in components.items():
                 # We need to get the length of the component name and take it away from the offset
-                # in order to make the 'column' consistently spaced for every component
-                print(f'{name} {(BODY_OFFSET - len(name)) * " "}: {item_id}')
+                # in order to make the column consistently spaced for every component
+                print(f'{name} {(BODY_OFFSET - len(name)) * " "}  |  {item_id}')
             print("")
         else:
             if query in components:
-                print(f'{query} (component)  |  ID: {components[query]}\n')
+                print(f'{query} (component) | ID: {components[query]}\n')
             elif query in junk_items:
-                print(f'{query} (junk)  |  components: {", ".join(junk_items[query])}\n')
+                print(f'{query} (junk) | components: {", ".join(junk_items[query])}\n')
             else:
                 print("This is not a valid component\n")
 
