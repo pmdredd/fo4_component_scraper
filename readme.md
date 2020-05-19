@@ -41,7 +41,7 @@ a (private) function that parses the scraped data, and a few variables to store 
 I run both functions on instantiation so 'users' of the object are not actually calling these functions themselves.
 Maybe I can just turn it into a module and skip the ceremony of OOP.~~
 
-I have removed the FO4ComponentScraper class and replaced it with a plain imperative module with a single function.
+I have removed the FO4ComponentScraper class and replaced it with a module (containing only functions).
 I think defining a class wasn't necessary as the resulting object was not composable or re-usable,
 and I was accessing the attributes directly anyway so encapsulation was pointless. Caching the result of the scrape
 was not necessary either as the script only scrapes once when it starts anyway.
