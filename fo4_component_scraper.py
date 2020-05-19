@@ -1,13 +1,13 @@
-# The scraper that gets item data from the FO4 wiki
-import requests
-from bs4 import BeautifulSoup
+"""Fallout 4 component scraper
 
-SOURCE_URL = "https://fallout.fandom.com/wiki/Fallout_4_junk_items"
-page = requests.get(SOURCE_URL)
-soup = BeautifulSoup(page.content, features="html.parser")
+This module contains functions that take the scraped data (as a BS4 object)
+and return the relevant item/component data as a dictionary.
+"""
 
 
-def get_components():
+def get_components(soup):
+    """Get the name and ID of every component"""
+
     # Get the first table on the page, which contains the components and their IDs
     components_table = soup.find('table', class_='va-table')
     # Get all the rows from the table, as a list, excluding first 2 rows as they are headers
@@ -22,7 +22,9 @@ def get_components():
     return components
 
 
-def get_junk_items():
+def get_junk_items(soup):
+    """Get the name and constituent component(s) of every junk item"""
+
     # The third table on the page contains all junk items and their constituent components
     junk_table = soup.find_all('table', class_='va-table')[2]
     # Exclude the first row as it is a header
