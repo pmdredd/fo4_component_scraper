@@ -13,7 +13,6 @@ def get_components(soup):
     # Get all the rows from the table, as a list, excluding first 2 rows as they are headers
     component_rows = components_table.find_all('tr')[2:]
 
-    # Loop through each row and extract the component name and base ID
     components = {}
     for row in component_rows:
         name = row.a.text.lower()
